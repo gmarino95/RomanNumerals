@@ -9,7 +9,7 @@ public class TestRomanNumerals {
 	private RomanNumerals roman= new RomanNumerals();
 
 	@Test
-	public void testonecharacter() {
+	public void testonecharacter() throws IllegalOccurrenceLetter {
 		
 		romanNum = "V";
 		decimal = roman.convertToInteger(romanNum);
@@ -18,7 +18,7 @@ public class TestRomanNumerals {
 	}
 	
 	@Test
-	public void testthreecharacter(){
+	public void testthreecharacter() throws IllegalOccurrenceLetter{
 		
 		romanNum = "III";
 		decimal = roman.convertToInteger(romanNum);
@@ -27,12 +27,19 @@ public class TestRomanNumerals {
 	}
 	
 	@Test
-	public void testNumber(){
+	public void testNumber() throws IllegalOccurrenceLetter{
 		
 		romanNum = "MMXV";
 		decimal = roman.convertToInteger(romanNum);
 		
 		assertEquals(2015, decimal);
+	}
+	
+	@Test(expected = IllegalOccurrenceLetter.class)
+	public void testIllegalOccurenceLetterException() throws IllegalOccurrenceLetter {
+		
+		romanNum = "IIII";
+		decimal= roman.convertToInteger(romanNum);
 	}
 
 }

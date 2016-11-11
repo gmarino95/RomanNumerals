@@ -1,13 +1,21 @@
 
 public class RomanNumerals {
-	public int convertToInteger(String romanNum) {
+	public int convertToInteger(String romanNum) throws IllegalOccurrenceLetter {
 		
 		int decimal = 0;
 		int lastNumber = 0;
+		int counterI = 0;
+		int counterC = 0;
+		int counterX = 0;
+		int counterM = 0;
 		
 		String romanNumeral = romanNum.toUpperCase();
 		
 		for(int i = romanNumeral.length() - 1; i >= 0; i--){
+			
+			if(counterI > 3 || counterC > 3 || counterX > 3 || counterM > 3){
+				throw new IllegalOccurrenceLetter();
+			}
 			
 			char convertToDecimal = romanNum.charAt(i);
 			
@@ -45,6 +53,7 @@ public class RomanNumerals {
 				case 'I':
 					decimal = processDecimal(1, lastNumber,decimal);
 					lastNumber = 1;
+					counterI++;
 					break;
 			}	
 		}
