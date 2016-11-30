@@ -14,7 +14,7 @@ import exceptions.IllegalSubtractionException;
 import exceptions.TooMuchSymbolRepetitionsException;
 
 @RunWith(Parameterized.class)
-public class TestSymbolRepetitionException {
+public class TestSymbolRepetitionException{
 
 	@Parameters
 	public static Collection<Object> data(){
