@@ -32,5 +32,4 @@ public class TestSymbolRepetitionException{
 		//Act
 		RomanNumerals.convertToInteger(input);
 	}
-	
 }
